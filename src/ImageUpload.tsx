@@ -3,6 +3,8 @@ import { useDropzone } from "react-dropzone"
 import Box from "@mui/material/Box"
 import UploadDragInfo from "./UploadDragInfo"
 import UploadDisplayText from "./UploadDisplayText"
+import { useSetAtom } from "jotai"
+import fileAtom from "./state"
 
 const boxStyles = {
   border: 2,
@@ -11,8 +13,10 @@ const boxStyles = {
 }
 
 const ImageUpload = () => {
+  const setFileAtom = useSetAtom(fileAtom)
   const onDrop = useCallback((acceptedFiles: Array<File>) => {
-    console.log(acceptedFiles)
+    console.log(acceptedFiles[0])
+    setFileAtom(acceptedFiles[0])
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
   return (
