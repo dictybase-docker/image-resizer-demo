@@ -11,6 +11,8 @@ const ImageDisplay = () => {
       sx={{ flexBasis: "45%", height: `${percentWindowHeight(75)}px` }}
       pt={3}>
       {imageFile ? <Image src={imageFile} /> : null}
+    <Box sx={{ flexBasis: "45%", height: `${initialHeight}px` }} pt={3}>
+      {imageFile ? <Image src={imageFile} fit="fill" /> : null}
     </Box>
   )
 }
