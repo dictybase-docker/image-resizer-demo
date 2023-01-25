@@ -1,4 +1,4 @@
-const percentHeight = (percent: number) =>
+const percentWindowHeight = (percent: number) =>
   Math.round((percent * window.innerHeight) / 100)
 
-export default percentHeight
+export default percentWindowHeight

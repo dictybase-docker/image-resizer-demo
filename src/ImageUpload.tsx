@@ -5,6 +5,7 @@ import UploadDragInfo from "./UploadDragInfo"
 import UploadDisplayText from "./UploadDisplayText"
 import { useSetAtom } from "jotai"
 import fileAtom from "./state"
+import percentWindowHeight from "./height"
 
 const boxStyles = {
   border: 2,
@@ -14,13 +15,22 @@ const boxStyles = {
 
 const ImageUpload = () => {
   const setFileAtom = useSetAtom(fileAtom)
+  const boxStylesWithHeight = {
+    height: `${percentWindowHeight(40)}px`,
+    ...boxStyles,
+  }
+
   const onDrop = useCallback((acceptedFiles: Array<File>) => {
     console.log(acceptedFiles[0])
-    setFileAtom(acceptedFiles[0])
+    setFileAtom(URL.createObjectURL(acceptedFiles[0]))
   }, [])
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    maxFiles: 1,
+    accept: { "image/*": [] },
+  })
   return (
-    <Box {...getRootProps()} m={4} p={5} sx={boxStyles}>
+    <Box {...getRootProps()} m={4} p={5} sx={boxStylesWithHeight}>
       <input {...getInputProps()} />
       {isDragActive ? <UploadDragInfo /> : <UploadDisplayText />}
     </Box>
