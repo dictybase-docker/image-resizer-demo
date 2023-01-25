@@ -4,6 +4,7 @@ import Box from "@mui/material/Box"
 import Stack from "@mui/material/Stack"
 import NavigationBar from "./NavigationBar"
 import ImageUpload from "./ImageUpload"
+import ImageDisplay from "./ImageDisplay"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         </Box>
         <Stack direction="row" spacing={4}>
           <ImageUpload />
+          <ImageDisplay />
         </Stack>
       </Container>
     </CssBaseline>
