@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Container from "@mui/material/Container"
+import Box from "@mui/material/Box"
 import ErrorDisplay from "./ErrorDisplay"
 import LoadingDisplay from "./LoadingDisplay"
 import StyledImage from "./StyledImage"
@@ -7,11 +7,11 @@ import StyledImage from "./StyledImage"
 type ImageProperties = {
   src: string
   alt?: string
-  height: string
-  width: string
-  fit: string
-  duration: number
-  easing: string
+  height?: string
+  width?: string
+  fit?: string
+  duration?: number
+  easing?: string
 }
 
 const baseStyles = {
@@ -35,7 +35,7 @@ const Image = ({
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   return (
-    <Container disableGutters sx={{ height, width, ...baseStyles.root }}>
+    <>
       <StyledImage
         src={src}
         alt={alt}
@@ -50,7 +50,7 @@ const Image = ({
       />
       {loading ? <LoadingDisplay /> : null}
       {error ? <ErrorDisplay /> : null}
-    </Container>
+    </>
   )
 }
 
