@@ -1,4 +1,5 @@
 import { atom } from "jotai"
 
 const fileAtom = atom("")
-export default fileAtom
+const dimesionAtom = atom({ width: 0, height: 0 })
+export { fileAtom, dimesionAtom }
