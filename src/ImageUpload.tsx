@@ -4,8 +4,8 @@ import Box from "@mui/material/Box"
 import UploadDragInfo from "./UploadDragInfo"
 import UploadDisplayText from "./UploadDisplayText"
 import { useSetAtom } from "jotai"
-import fileAtom from "./state"
-import percentWindowHeight from "./height"
+import {fileAtom} from "./state"
+import {percentWindowHeight} from "./height"
 
 const boxStyles = {
   border: 2,
@@ -21,7 +21,6 @@ const ImageUpload = () => {
   }
 
   const onDrop = useCallback((acceptedFiles: Array<File>) => {
-    console.log(acceptedFiles[0])
     setFileAtom(URL.createObjectURL(acceptedFiles[0]))
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
