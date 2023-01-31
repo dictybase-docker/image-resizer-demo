@@ -11,10 +11,9 @@ const propsToCheck = ["fit", "duration", "easing"]
 const validateStyledImageValues = (prop: string) => !propsToCheck.includes(prop)
 const StyledImage = styled("img", {
   shouldForwardProp: validateStyledImageValues,
-})<StyledImageProperties>(({ fit, easing, duration }) => ({
+})<StyledImageProperties>(({ easing, duration }) => ({
   width: "100%",
   height: "100%",
-  "object-fit": fit,
   animationName: "materialize",
   animationDuration: `${duration}ms`,
   animationTimingFunction: easing,
