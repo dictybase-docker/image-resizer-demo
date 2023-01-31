@@ -1,4 +1,3 @@
-import { useState } from "react"
 import ErrorDisplay from "./ErrorDisplay"
 import LoadingDisplay from "./LoadingDisplay"
 import StyledImage from "./StyledImage"
@@ -33,7 +32,7 @@ const Image = ({
   }
   return (
     <>
-      <StyledImage {...props} />
+      <StyledImage {...props} sx={{objectFit: fit}} />
       {loading ? <LoadingDisplay /> : null}
       {error ? <ErrorDisplay /> : null}
     </>
